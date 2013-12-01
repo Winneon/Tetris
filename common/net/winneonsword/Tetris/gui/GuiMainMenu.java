@@ -12,7 +12,10 @@ public class GuiMainMenu extends Gui {
 	@Override
 	public void drawScreen(){
 		
-		FontRenderer.drawString(this.width / 2, this.height / 2, "Welcome to Tetris!");
+		FontRenderer.drawString(100, 100, "abcdefghijklmnopqrstuvwxyz");
+		FontRenderer.drawCenteredString(this.height / 2 - 7.5, "§6Tetris");
+		FontRenderer.drawString(((this.width / 4) + (this.width / 6)) - (FontRenderer.getStringWidth("Start") / 2), this.height - (this.height / 4), "Start");
+		FontRenderer.drawStringFromRight(((this.width / 4) + (this.width / 6)) + (FontRenderer.getStringWidth("Quit") / 2), this.height - (this.height / 4), "Quit");
 		
 	}
 	

@@ -1,12 +1,16 @@
 package net.winneonsword.Tetris.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.winneonsword.Tetris.handlers.DisplayHandler;
 import net.winneonsword.Tetris.handlers.GraphicHandler;
 
 import org.lwjgl.opengl.GL11;
 
 public class FontRenderer {
 	
-	public static void drawLetter(int x, int y, char c){
+	public static void drawLetter(double x, double y, char c){
 		
 		switch (Character.toLowerCase(c)){
 		
@@ -170,11 +174,18 @@ public class FontRenderer {
 			GraphicHandler.drawRectangle(x + 5, y, x + 10, y + 20);
 			break;
 			
+		case 'u':
+			
+			GraphicHandler.drawRectangle(x, y, x + 5, y + 20);
+			GraphicHandler.drawRectangle(x, y + 15, x + 15, y + 20);
+			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 20);
+			break;
+			
 		}
 		
 	}
 	
-	public static void drawString(int x, int y, String s){
+	public static void drawString(double x, double y, String s){
 		
 		char[] array = s.toCharArray();
 		
@@ -197,6 +208,68 @@ public class FontRenderer {
 		}
 		
 		GraphicHandler.changeColor('f');
+		
+	}
+	
+	public static void drawStringFromRight(double x, double y, String s){
+		
+		FontRenderer.drawString(DisplayHandler.width - x, y, s);
+		
+	}
+	
+	public static void drawCenteredString(double y, String s){
+		
+		FontRenderer.drawString((DisplayHandler.width / 2) - (FontRenderer.getStringWidth(s) / 2), y, s);
+		
+	}
+	
+	public static double getStringWidth(String s){
+		
+		Character[] array = FontRenderer.toCharacterArray(s);
+		
+		for (int i = 0; i < array.length; i++){
+			
+			char c = array[i];
+			
+			if (c == '§'){
+				
+				List<Character> list = new ArrayList<Character>();
+				
+				for (char a : array){
+					
+					list.add(a);
+					
+				}
+				
+				list.remove(i);
+				list.remove(i + 1);
+				
+				array = list.toArray(new Character[list.size()]);
+				
+			}
+			
+		}
+		
+		return (array.length * 20) - 5;
+		
+	}
+	
+	public static Character[] toCharacterArray(String s){
+		
+		if (s == null){
+			
+			return null;
+			
+		}
+		
+		Character[] array = new Character[s.length()];
+		
+		for (int i = 0; i < s.length(); i++){
+			
+			array[i] = new Character(s.charAt(i));				
+		}
+		
+		return array;
 		
 	}
 	
