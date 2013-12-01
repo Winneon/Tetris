@@ -181,6 +181,50 @@ public class FontRenderer {
 			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 20);
 			break;
 			
+		case 'v':
+			
+			GraphicHandler.drawRectangle(x, y, x + 5, y + 15);
+			GraphicHandler.drawRectangle(x + 5, y + 15, x + 10, y + 20);
+			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 15);
+			break;
+			
+		case 'w':
+			
+			GraphicHandler.drawRectangle(x, y, x + 5, y + 20);
+			GraphicHandler.drawRectangle(x, y + 11, x + 15, y + 16);
+			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 20);
+			break;
+			
+		case 'x':
+			
+			GraphicHandler.drawRectangle(x, y, x + 5, y + 7.5);
+			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 7.5);
+			GraphicHandler.drawRectangle(x, y + 13.5, x + 5, y + 20);
+			GraphicHandler.drawRectangle(x + 10, y + 13.5, x + 15, y + 20);
+			GraphicHandler.drawRectangle(x + 5, y + 7.5, x + 10, y + 13.5);
+			break;
+			
+		case 'y':
+			
+			GraphicHandler.drawRectangle(x, y, x + 5, y + 10);
+			GraphicHandler.drawRectangle(x + 10, y, x + 15, y + 10);
+			GraphicHandler.drawRectangle(x + 5, y + 10, x + 10, y + 20);
+			break;
+			
+		case 'z':
+			
+			GraphicHandler.drawRectangle(x, y, x + 15, y + 5);
+			GraphicHandler.drawRectangle(x + 5, y + 5, x + 10, y + 10);
+			GraphicHandler.drawRectangle(x, y + 10, x + 5, y + 20);
+			GraphicHandler.drawRectangle(x, y + 15, x + 15, y + 20);
+			break;
+			
+		case ':':
+			
+			GraphicHandler.drawRectangle(x + 5, y + 5, x + 10, y + 10);
+			GraphicHandler.drawRectangle(x + 5, y + 15, x + 10, y + 20);
+			break;
+			
 		}
 		
 	}
@@ -242,7 +286,6 @@ public class FontRenderer {
 				}
 				
 				list.remove(i);
-				list.remove(i + 1);
 				
 				array = list.toArray(new Character[list.size()]);
 				
@@ -260,16 +303,19 @@ public class FontRenderer {
 			
 			return null;
 			
-		}
-		
-		Character[] array = new Character[s.length()];
-		
-		for (int i = 0; i < s.length(); i++){
+		} else {
 			
-			array[i] = new Character(s.charAt(i));				
+			Character[] array = new Character[s.length()];
+			
+			for (int i = 0; i < s.length(); i++){
+				
+				array[i] = new Character(s.charAt(i));
+				
+			}
+			
+			return array;
+			
 		}
-		
-		return array;
 		
 	}
 	
